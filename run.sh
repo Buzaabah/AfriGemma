@@ -9,7 +9,7 @@ max_target_length=128
 val_max_target_length=75
 mode=train
 
-output_dir=../results/africanlp/mt5-base
+output_dir=results/africanlp/mt5-base
 evaluation_strategy=steps
 num_train_epochs=2
 per_device_train_batch_size=4
