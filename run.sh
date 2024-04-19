@@ -3,7 +3,7 @@ DATE_WITH_TIME=$(date "+%Y%m%d-%H%M%S")
 
 tokenizer_name=google/mt5-base
 model_name=google/mt5-base
-data_dir=datasets/africanlp
+data_dir=datasets/africanlp/en-swa
 max_source_length=128
 max_target_length=128
 val_max_target_length=75
