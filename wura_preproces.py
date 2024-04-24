@@ -6,8 +6,8 @@ import json
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", cache_dir=".cache")
-AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", cache_dir=".cache")
+AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
+AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
 
 # Load the dataset
 dataset = load_dataset("castorini/wura")
