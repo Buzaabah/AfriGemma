@@ -3,11 +3,17 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import json
 
+
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", cache_dir=".cache")
+AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", cache_dir=".cache")
+
 # Load the dataset
 dataset = load_dataset("castorini/wura")
 
 # Load the Llama 3-8B tokenizer
-model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+model_id = "meta-llama/Meta-Llama-3-8B"
 tokenizer = AutoTokenizer.from_pretrained("model_id")
 
 
