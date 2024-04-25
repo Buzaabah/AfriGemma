@@ -6,9 +6,10 @@ import json
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
-AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
+AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
+AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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', cache_dir=".cache")
 
+"""
 # Load the dataset
 dataset = load_dataset("castorini/wura")
 
@@ -36,3 +37,4 @@ def tokenize_and_save(dataset, tokenizer, filename="tokenized_data.jsonl"):
 
 # Run the tokenization and saving process
 tokenize_and_save(dataset, tokenizer)
+"""
