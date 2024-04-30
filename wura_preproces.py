@@ -42,51 +42,39 @@ tokenize_and_save(dataset, tokenizer)
 
 import json
 from transformers import AutoTokenizer
-import os
 
-# Path to the JSONL file
+# Define the file path
 file_path = "data/wura/documents-v1.0/train/kin.jsonl"
 
-# Load the Llama 3-8B tokenizer
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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')
+# Load the data from the file
+with open(file_path, 'r') as f:
+    data = [json.loads(line) for line in f]
 
-def tokenize_and_save(file_path, tokenizer, output_filename):
-    with open(file_path, 'r', encoding='utf-8') as file, \
-         open(output_filename, 'w', encoding='utf-8') as outfile:
+# Initialize the tokenizer
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
 
-        for line in file:
-            entry = json.loads(line)
-            if 'headline' in entry and entry['headline'] and 'content' in entry and entry['content']:
-            #try:
-                # Tokenize the 'headline' and 'content'
-                tokenized_headline = tokenizer(text=entry['headline'])
-                tokenized_content = tokenizer(text=entry['content'])
-            #except Exception as e:
-            #    print(f"Failed to tokenize: {entry['headline']} or {entry['content']}")
-            #    print(f"Error: {str(e)}")
-            #    continue
-            else:
-                print(f"Missing 'headline' or 'content' in line: {line}")
-                continue
+# Process each entry in the data
+output_data = []
+for entry in data:
+    # Tokenize the headline and content
+    tokenized_headline = tokenizer(entry['headline'], return_tensors='pt', max_length=512, truncation=True)
+    tokenized_content = tokenizer(entry['content'], return_tensors='pt', max_length=512, truncation=True)
 
-            # Prepare the output format
-            output = {
-                "headline": entry['headline'],
-                "tokens_headline": tokenized_headline.input_ids,
-                "length_headline": len(tokenized_headline.input_ids),
-                "content": entry['content'],
-                "tokens_content": tokenized_content.input_ids,
-                "length_content": len(tokenized_content.input_ids),
-                "category": entry['category'],
-                "url": entry['url']
-            }
+    # Create the output dictionary
+    output = {
+        "headline": entry['headline'],
+        "tokens_headline": tokenized_headline.input_ids.tolist()[0],
+        "length_headline": len(tokenized_headline.input_ids.tolist()[0]),
+        "content": entry['content'],
+        "tokens_content": tokenized_content.input_ids.tolist()[0],
+        "length_content": len(tokenized_content.input_ids.tolist()[0]),
+    }
 
-            # Write to file as JSON
-            json.dump(output, outfile)
-            outfile.write('\n')
+    # Add the output to the list
+    output_data.append(output)
 
-# Output file path
-output_file_path = file_path.replace('.jsonl', '_tokenized.jsonl')
-
-# Run the tokenization and saving process
-tokenize_and_save(file_path, tokenizer, output_file_path)
+# Save the output to a new file
+with open('Out_kin.jsonl', 'w') as f:
+    for entry in output_data:
+        json.dump(entry, f)
+        f.write('\n')
