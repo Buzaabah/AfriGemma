@@ -25,8 +25,8 @@ output_data = []
 for entry in data:
     if 'headline' in entry and 'content' in entry:
         # Tokenize the headline and content
-        tokenized_headline = tokenizer(entry['headline'], return_tensors='pt', max_length=512, truncation=True)
-        tokenized_content = tokenizer(entry['content'], return_tensors='pt', max_length=512, truncation=True)
+        tokenized_headline = tokenizer(text=entry['headline'], return_tensors='pt', max_length=512, truncation=True)
+        tokenized_content = tokenizer(text=entry['content'], return_tensors='pt', max_length=512, truncation=True)
 
         # Create the output dictionary
         output = {
