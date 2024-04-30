@@ -48,7 +48,7 @@ import os
 file_path = "data/wura/documents-v1.0/train/kin.jsonl"
 
 # Load the Llama 3-8B tokenizer
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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')
 
 def tokenize_and_save(file_path, tokenizer, output_filename):
     with open(file_path, 'r', encoding='utf-8') as file, \
