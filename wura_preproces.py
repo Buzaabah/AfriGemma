@@ -15,7 +15,7 @@ tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth
 tokenizer.add_special_tokens({'additional_special_tokens': ['<special_token_1>', '<special_token_2>']})
 
 # Load the model
-model = AutoModelForSequenceClassification.from_pretrained("meta-llama/Meta-Llama-3-8B")
+model = AutoModelForSequenceClassification.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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')
 
 # Resize the token embeddings to include the new special tokens
 model.resize_token_embeddings(len(tokenizer))
