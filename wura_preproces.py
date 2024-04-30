@@ -1,5 +1,5 @@
 import json
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # Define the file path
 file_path = "data/wura/documents-v1.0/train/kin.jsonl"
@@ -10,6 +10,15 @@ with open(file_path, 'r') as f:
 
 # Initialize the tokenizer
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
+
+# Add special tokens to the tokenizer
+tokenizer.add_special_tokens({'additional_special_tokens': ['<special_token_1>', '<special_token_2>']})
+
+# Load the model
+model = AutoModelForSequenceClassification.from_pretrained("meta-llama/Meta-Llama-3-8B")
+
+# Resize the token embeddings to include the new special tokens
+model.resize_token_embeddings(len(tokenizer))
 
 # Process each entry in the data
 output_data = []
