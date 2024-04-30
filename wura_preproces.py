@@ -57,8 +57,8 @@ def tokenize_and_save(file_path, tokenizer, output_filename):
         for line in file:
             entry = json.loads(line)
             # Tokenize the 'headline' and 'content'
-            tokenized_headline = tokenizer(entry['headline'])
-            tokenized_content = tokenizer(entry['content'])
+            tokenized_headline = tokenizer(text=entry['headline'])
+            tokenized_content = tokenizer(text=entry['content'])
 
             # Prepare the output format
             output = {
