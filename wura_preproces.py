@@ -9,7 +9,7 @@ with open(file_path, 'r') as f:
     data = [json.loads(line) for line in f]
 
 # Initialize the tokenizer
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B", use_auth_token='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')
 
 # Add special tokens to the tokenizer
 tokenizer.add_special_tokens({'additional_special_tokens': ['<special_token_1>', '<special_token_2>']})
