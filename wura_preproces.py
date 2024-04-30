@@ -56,9 +56,14 @@ def tokenize_and_save(file_path, tokenizer, output_filename):
 
         for line in file:
             entry = json.loads(line)
-            # Tokenize the 'headline' and 'content'
-            tokenized_headline = tokenizer(text=entry['headline'])
-            tokenized_content = tokenizer(text=entry['content'])
+            try:
+                # Tokenize the 'headline' and 'content'
+                tokenized_headline = tokenizer(text=entry['headline'])
+                tokenized_content = tokenizer(text=entry['content'])
+            except Exception as e:
+                print(f"Failed to tokenize: {entry['headline']} or {entry['content']}")
+                print(f"Error: {str(e)}")
+                continue
 
             # Prepare the output format
             output = {
