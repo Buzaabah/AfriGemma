@@ -1,7 +1,6 @@
 import torch
 import json
 import os
-pip install datasets
 from datasets import load_dataset
 from transformers import AutoTokenizer
 
