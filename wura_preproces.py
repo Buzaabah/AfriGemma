@@ -4,7 +4,7 @@ import os
 from datasets import load_dataset
 from transformers import AutoTokenizer
 
-dataset = load_dataset("castorini/wura", "xho", level="passage", verification_mode="no_checks")
+dataset = load_dataset("castorini/wura", "zul", level="passage", verification_mode="no_checks")
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct", token='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')
 
@@ -36,7 +36,7 @@ def tokenize_data(dataset):
 tokenized_dataset = tokenize_data(dataset)
 
 
-output_file = "xho_tokenized.jsonl"
+output_file = "zul_tokenized.jsonl"
 
 if isinstance(tokenized_dataset, dict):
     for split_name, split_data in tokenized_dataset.items():
