@@ -6,7 +6,7 @@ from transformers import AutoTokenizer
 
 dataset = load_dataset("castorini/wura", "kin", level="passage", verification_mode="no_checks")
 
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct", token='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')
 
 
 def tokenize_data(dataset):
