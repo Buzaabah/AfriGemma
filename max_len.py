@@ -5,4 +5,4 @@ with open('wura_data/train/train_afr_tokenized.jsonl') as f:
 
   # Add parentheses around the generator expression
 
-  print(max(d['length'] for d in data))
+  print(min(d['length'] for d in data))
