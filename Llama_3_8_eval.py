@@ -20,9 +20,11 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 metric = load_metric("accuracy", trust_remote_code=True)
 #metric = evaluate.load("accuracy", trust_remote_code=True)
 
+text_field = 'question'
+
 # Tokenize the dataset
 def preprocess_function(examples):
-    return tokenizer(examples['text'], truncation=True, padding=True)
+    return tokenizer(examples[text_field], truncation=True, padding=True)
 
 encoded_dataset = dataset.map(preprocess_function, batched=True)
 
