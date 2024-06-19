@@ -63,3 +63,9 @@ eval_results = trainer.evaluate()
 
 # Print the evaluation results
 print(f"Evaluation results: {eval_results}")
+
+
+del model
+del tokenizer
+gc.collect()
+torch.cuda.empty_cache()
