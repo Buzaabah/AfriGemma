@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 from datasets import load_dataset, load_metric
+import evaluate
 
 # Define model and dataset names
 model_name = "../checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
@@ -15,7 +16,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 #dataset = load_dataset(benchmark_name)
 
 # Define the evaluation metric (assuming a classification task)
-metric = load_metric("accuracy")
+#metric = load_metric("accuracy")
+metric = evaluate.load("accuracy", trust_remote_code=True)
 
 # Tokenize the dataset
 def preprocess_function(examples):
