@@ -7,10 +7,14 @@ import evaluate
 model_name = "../checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
 dataset = load_dataset("masakhane/afrimgsm", "amh")
 
-print(dataset)
+#print(dataset)
 # Load the fine-tuned model and tokenizer
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+
+if tokenizer.pad_token is None:
+    tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 
 # Load the benchmark dataset
 #dataset = load_dataset(benchmark_name)
@@ -24,7 +28,7 @@ text_field = 'question'
 
 # Tokenize the dataset
 def preprocess_function(examples):
-    return tokenizer(examples[text_field], truncation=True, padding=True)
+    return tokenizer(examples[text_field], truncation=True, padding='max_length', max_length=512)
 
 encoded_dataset = dataset.map(preprocess_function, batched=True)
 
