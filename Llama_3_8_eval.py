@@ -17,7 +17,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Define the evaluation metric (assuming a classification task)
 #metric = load_metric("accuracy")
-metric = evaluate.load("accuracy", trust_remote_code=True)
+metric = load_metric("accuracy", trust_remote_code=True)
+#metric = evaluate.load("accuracy", trust_remote_code=True)
 
 # Tokenize the dataset
 def preprocess_function(examples):
