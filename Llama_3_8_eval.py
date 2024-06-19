@@ -7,7 +7,7 @@ import evaluate
 model_name = "../checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
 dataset = load_dataset("masakhane/afrimgsm", "amh")
 
-
+print(dataset)
 # Load the fine-tuned model and tokenizer
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
