@@ -1,4 +1,5 @@
 import torch
+import gc
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 from datasets import load_dataset, load_metric
 import evaluate
