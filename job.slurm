@@ -1,11 +1,11 @@
-#!/bin/bash
-#SBATCH --job-name=mnist         # create a short name for your job
+#!/bin/bash -l
+#SBATCH --job-name=train_wura         # create a short name for your job
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=1        # cpu-cores per task (>1 if multi-threaded tasks)
-#SBATCH --mem=8G                 # total memory per node (4 GB per cpu-core is default)
-#SBATCH --gres=gpu:1             # number of gpus per node
-#SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
+#SBATCH --mem=100G                 # total memory per node (4 GB per cpu-core is default)
+#SBATCH --gres=gpu:4             # number of gpus per node
+#SBATCH --time=08:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin        # send email when job begins
 #SBATCH --mail-type=end          # send email when job ends
 #SBATCH --mail-user=hb3815@princeton.edu
@@ -28,4 +28,4 @@ module load anaconda3/2024.2
 #Della
 conda activate /scratch/gpfs/hb3815/.conda/envs/torch-env
 
-python Llama_3_8_eval.py 
+python Llama_3_8_eval.py
