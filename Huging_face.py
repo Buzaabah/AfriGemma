@@ -18,6 +18,17 @@ token = HfFolder.get_token()
 # )
 #file_path = os.path.abspath("../../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul")
 # directory = "../../awettig/scaling_wura/checkpoints/"
+
+
+directory = os.path.abspath("../awettig/scaling_wura/checkpoints")
+print(f"Checking files in: {directory}")
+
+for filename in os.listdir(directory):
+    print(filename)
+
+
+
+
 file_path = "../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
 
 print(f"Checking file at: {file_path}")
