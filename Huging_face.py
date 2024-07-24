@@ -31,6 +31,11 @@ else:
     print("File does not exist. Please check the path.")
 
 
+directory = os.path.abspath("../../awettig/scaling_wura/checkpoints/")
+print(f"Checking files in: {directory}")
+
+for filename in os.listdir(directory):
+    print(filename)
 
 #if os.path.isfile(filepath):
 #    print("File exists!")
