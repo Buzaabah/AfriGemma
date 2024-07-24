@@ -1,10 +1,11 @@
-huggingface-cli login
+#huggingface-cli login
 
 from huggingface_hub import HfApi, HfFolder
 
 api = HfApi()
 token = HfFolder.get_token()
 
+print(f"Current token: {token}")
 api.create_repo(repo_id="Happyb/afroMeta-Llama-3-8B", private=True)
 
 # Push files to your repository
