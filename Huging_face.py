@@ -16,9 +16,9 @@ print(f"Current model token: {token}")
 #    repo_id="Happyb/afroMeta-Llama-3-8B",
 #    token=token
 # )
-file_path = os.path.abspath("../../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul")
+#file_path = os.path.abspath("../../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul")
 # directory = "../../awettig/scaling_wura/checkpoints/"
-#filepath = "../../../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
+file_path = "/scratch/gpfs/awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
 
 if os.path.isfile(file_path):
     api.upload_file(
@@ -31,11 +31,11 @@ else:
     print("File does not exist. Please check the path.")
 
 
-directory = os.path.abspath("../../awettig/scaling_wura/checkpoints/")
-print(f"Checking files in: {directory}")
+#directory = os.path.abspath("../../awettig/scaling_wura/checkpoints/")
+#print(f"Checking files in: {directory}")
 
-for filename in os.listdir(directory):
-    print(filename)
+#for filename in os.listdir(directory):
+#    print(filename)
 
 #if os.path.isfile(filepath):
 #    print("File exists!")
