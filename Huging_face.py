@@ -6,7 +6,7 @@ import os
 api = HfApi()
 token = HfFolder.get_token()
 
-print(f"Current model token: {token}")
+#print(f"Current model token: {token}")
 # api.create_repo(repo_id="Happyb/afroMeta-Llama-3-8B", private=True)
 
 # Push files to your repository
@@ -18,9 +18,12 @@ print(f"Current model token: {token}")
 # )
 #file_path = os.path.abspath("../../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul")
 # directory = "../../awettig/scaling_wura/checkpoints/"
-file_path = "/scratch/gpfs/awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
+file_path = "/../awettig/scaling_wura/checkpoints/Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul"
+
+print(f"Checking file at: {file_path}")
 
 if os.path.isfile(file_path):
+    print("File Found!")
     api.upload_file(
         path_or_fileobj=file_path,
         path_in_repo="Meta-Llama-3-8B_wura_data-packed_bsz256_steps3000_lr6e-5_warmup0.05_afr+amh+eng+fra+hau+ibo+kin+mlg+nya+orm+por+sna+som+sot+swa+tir+xho+yor+zul",
