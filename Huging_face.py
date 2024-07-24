@@ -6,7 +6,7 @@ import os
 api = HfApi()
 token = HfFolder.get_token()
 
-print(f"Current token: {token}")
+print(f"Current model token: {token}")
 # api.create_repo(repo_id="Happyb/afroMeta-Llama-3-8B", private=True)
 
 # Push files to your repository
