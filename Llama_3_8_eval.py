@@ -64,6 +64,7 @@ eval_results = trainer.evaluate()
 
 # Print the evaluation results
 print(f"Evaluation results: {eval_results}")
+print(f"Accuracy: {eval_results['eval_accuracy']}")
 
 
 del model
