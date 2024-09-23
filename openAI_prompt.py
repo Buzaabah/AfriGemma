@@ -3,17 +3,18 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI()
 
-from openai import AzureOpenAI
+# Define the text you want to translate and the target language
+text_to_translate = "The approved law must still receive ratification from the upper house of parliament as well as approval by King Abdullah II, who retains supreme authority and whose signature is the seal of approval to all legislative matters."
+target_language = "Isizulu"  # Example: translating to French
 
-client = AzureOpenAI()
 
 completion = client.chat.completions.create(
     model="gpt-4o-2024-05-13",
     messages=[
         {
             "role": "user",
-            "content": "How do I output all files in a directory using Python?",
+            "content": f"Translate the following text to {target_language}: {text_to_translate}",
         },
     ],
 )
-print(completion.to_json())
+print(completion.choices[0].message.content)
