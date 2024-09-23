@@ -5,7 +5,7 @@ client = AzureOpenAI()
 
 # Define the text you want to translate and the target language
 text_to_translate = "The approved law must still receive ratification from the upper house of parliament as well as approval by King Abdullah II, who retains supreme authority and whose signature is the seal of approval to all legislative matters."
-target_language = "Isizulu"  # Example: translating to French
+target_language = "Kiswahili"  # Example: translating to French
 
 
 completion = client.chat.completions.create(
