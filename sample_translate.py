@@ -4,12 +4,14 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI()
 
+start_index = 1895
 # Load input JSON lines
 input_texts = []
 
 with open("input_dat.json", "r") as file:
-    for line in file:
-        input_texts.append(json.loads(line.strip()))
+    for i, line in enumerate(file):
+        if i >= start_index:
+            input_texts.append(json.loads(line.strip()))
 
 target_language = "Kiswahili"
 #translated_texts = []
